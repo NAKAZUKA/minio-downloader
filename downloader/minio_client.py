@@ -27,7 +27,7 @@ class MinioDownloader:
             logger.info("MINIO: Starting to list objects")
             objects = self.client.list_objects(Config.MINIO_BUCKET, prefix=Config.MINIO_PREFIX, recursive=True)
             for obj in objects:
-                if not obj.object_name.lower().endswith(".tif"):
+                if not obj.object_name.lower().endswith(".tiff"):
                     continue
 
                 if obj.last_modified is None:
